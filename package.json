@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "ndb server.js",
     "start:prod": "set NODE_ENV=production && nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+  },
+  "engines": {
+    "node": "22.17.1" 
   },
   "author": "Mahmoud Mansour",
   "license": "ISC",
