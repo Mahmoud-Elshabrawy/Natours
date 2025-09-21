@@ -11,10 +11,10 @@ const User = require('../../models/userModel');
 const url = process.env.DATABASE.replace('<db_password>',process.env.DATABASE_PASSWORD);
 
 mongoose.connect(url, { autoIndex: true }, {}).then(() => {
-    console.log('MongoDB Connected Successfully');
+    // console.log('MongoDB Connected Successfully');
     })
     .catch((err) => {
-console.error('DB connection error:', err);
+// console.error('DB connection error:', err);
 });
 
 const tours = JSON.parse(fs.readFileSync(`${__dirname}/tours.json`, 'utf-8'))
@@ -27,7 +27,7 @@ async function importToDB() {
         await User.create(users, {validateBeforeSave: false})
         await Review.create(reviews)
 
-        console.log('Data Successfully Loaded...');
+        // console.log('Data Successfully Loaded...');
     } catch(err) {
         console.log(err);
     }

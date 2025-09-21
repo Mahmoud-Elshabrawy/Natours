@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser')
+const compression = require('compression')
 
 const AppError = require('./utilities/appError');
 const globalError = require('./controllers/errorController');
@@ -85,9 +86,10 @@ app.use(
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(compression())
+
 
 // Test MiddleWare
-
 app.use((req, res, next) => {
   req.requestTime = new Date().toString()
   // console.log(req.cookies);

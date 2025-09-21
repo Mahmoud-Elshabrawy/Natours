@@ -81,9 +81,9 @@ userSchema.methods.correctPassword = async function(
   candidatePassword,
   userPassword
 ) {
-  console.log('Comparing:', candidatePassword, 'with hash:', userPassword);
+  // console.log('Comparing:', candidatePassword, 'with hash:', userPassword);
   const result = await bcrypt.compare(candidatePassword, userPassword);
-  console.log('Comparison result:', result);
+  // console.log('Comparison result:', result);
   return result;
 };
 
@@ -109,7 +109,7 @@ userSchema.methods.createPasswordResetToken = function() {
     .update(resetToken)
     .digest('hex');
 
-  console.log({ resetToken }, this.passwordResetToken);
+  // console.log({ resetToken }, this.passwordResetToken);
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 

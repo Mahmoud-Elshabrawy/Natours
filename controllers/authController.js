@@ -51,7 +51,7 @@ const signUp = catchAsync(async(req, res, next) => {
 
 const logIn = catchAsync(async(req, res, next) => {
     const {email, password} = req.body
-    console.log('Login attempt - Email:', email, 'Password:', password);
+    // console.log('Login attempt - Email:', email, 'Password:', password);
     
     if(!email || !password) {
         return next(new AppError('Please provide correct email and password', 400))
@@ -60,13 +60,13 @@ const logIn = catchAsync(async(req, res, next) => {
     const user = await User.findOne({email}).select('+password')
     
     if (!user) {
-        console.log('User not found in database');
+        // console.log('User not found in database');
         return next(new AppError('Incorrect email or password', 401))
     }
     
     
     const isMatch = await user.correctPassword(password, user.password);
-    console.log('Password match result:', isMatch);
+    // console.log('Password match result:', isMatch);
     
     if(!isMatch) {
         return next(new AppError('Incorrect email or password', 401))
