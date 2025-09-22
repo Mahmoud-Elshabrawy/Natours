@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser')
 const compression = require('compression')
+const cors = require('cors')
 
 const AppError = require('./utilities/appError');
 const globalError = require('./controllers/errorController');
@@ -19,6 +20,13 @@ const bookingRouter = require('./routes/bookingRoutes')
 
 const app = express();
 
+
+// implement CORS 
+app.use(cors())
+
+// set Access-Control-Allow-Origin to *
+
+app.options('*', cors())
 
 app.use(express.static(path.join(__dirname, 'public')));
 
