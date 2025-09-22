@@ -35,4 +35,4 @@ It allows users to explore tours, sign up, log in, book tours, make payments, an
 - **Authentication:** JWT, bcrypt
 - **Payment Gateway:** Stripe
 - **Templating Engine:** Pug
-- **Frontend:** Vanilla JS, SCSS
+- **Frontend:** Vanilla JS, CSS
