@@ -3,6 +3,8 @@ const Tour = require('../models/tourModel')
 const Booking = require('../models/bookingModel')
 const catchAsync = require('../utilities/catchAsync')
 const AppError = require('../utilities/appError')
+
+
 exports.getOverview = catchAsync(async(req, res, next) => {
     const tours = await Tour.find()
     res.status(200).render('overview', {
@@ -10,6 +12,15 @@ exports.getOverview = catchAsync(async(req, res, next) => {
         tours
     })
 })
+
+exports.alerts = (req, res, next) => {
+    const {alert} = req.query
+
+    if(alert === 'booking') {
+        res.local.alert = 'Your booking was successful! \n if your booking doesn\'t shows up here immediately, please come back later'
+    }
+    next()
+}
 
 exports.getTour = catchAsync(async(req, res, next) => {
     const slug = req.params.slug

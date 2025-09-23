@@ -1,7 +1,7 @@
 import { login, logout } from './login';
 import { updateSettings } from './updateSettings';
 import { bookTour } from './stripe';
-
+import { showAlert } from './alert';
 import { signUp } from './signup';
 
 
@@ -75,4 +75,10 @@ if (signupForm) {
     const passwordConfirm = document.getElementById('signup_passwordConfirm').value;
     signUp(name, email, password, passwordConfirm);
   });
+}
+
+
+const alertMessage = document.querySelector('body').dataset.alert
+if(alertMessage) {
+  showAlert('success', alertMessage, 10)
 }
