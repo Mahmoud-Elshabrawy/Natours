@@ -17,7 +17,7 @@ exports.alerts = (req, res, next) => {
     const {alert} = req.query
 
     if(alert === 'booking') {
-        res.local.alert = 'Your booking was successful! \n if your booking doesn\'t shows up here immediately, please come back later'
+        res.locals.alert = 'Your booking was successful! \n if your booking doesn\'t shows up here immediately, please come back later'
     }
     next()
 }
