@@ -8,7 +8,7 @@ router.use(authController.protectAll);
 
 router.get(
   '/checkout-session/:tourId',
-  bookingController.createBookingCheckout,
+  // bookingController.createBookingCheckout,
   bookingController.getCheckout
 );
 router.use(authController.restrictTo('admin', 'lead-guide'))
