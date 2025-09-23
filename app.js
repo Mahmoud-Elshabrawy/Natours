@@ -18,6 +18,8 @@ const reviewRoutes = require('./routes/reviewRoutes');
 const viewRouter = require('./routes/viewRoutes');
 const bookingRouter = require('./routes/bookingRoutes')
 
+const bookingController = require('./controllers/bookingController')
+
 const app = express();
 
 
@@ -62,6 +64,10 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+
+// use this route in app.js because Stripe's webhook requests are sent with a unique signature in the header.
+//  To verify this signature, you need the raw request body as a stream
+app.post('/webhook-checkout', express.raw({type: 'application/json'}), bookingController.webhookCheckout)
 
 // Body Parser
 app.use(express.json());

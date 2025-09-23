@@ -8,9 +8,9 @@ const router = express.Router();
 router.get('/me', authController.protectAll , viewController.getAccount);
 
 router.get('/my-tours', authController.protectAll, viewController.getMyTours)
-router.use(authController.isLoggedIn);
 
-router.get('/',bookingController.createBookingCheckout, viewController.getOverview);
+router.use(authController.isLoggedIn);
+router.get('/', viewController.getOverview);
 
 router.get('/tour/:slug', viewController.getTour);
 
