@@ -16,12 +16,10 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id)
-    console.log( req.secure);
-    console.log(req.headers['x-forwarded-proto']);
     res.cookie('jwt', token, {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE_IN * 24 * 60 * 60 * 1000),
         httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+    secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
     })
 
     user.password = undefined
@@ -73,7 +71,7 @@ const logIn = catchAsync(async(req, res, next) => {
         return next(new AppError('Incorrect email or password', 401))
     }
 
-    createSendToken(user, 200, res)
+    createSendToken(user, 200, req, res)
 })
 
 
