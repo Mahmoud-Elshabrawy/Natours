@@ -19,8 +19,8 @@ const createSendToken = (user, statusCode, res) => {
 
     res.cookie('jwt', token, {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE_IN * 24 * 60 * 60 * 1000),
-        secure: process.env.NODE_ENV === 'production',
-        httpOnly: true
+        httpOnly: true,
+        secure: res.secure || req.headers['x-forwarded-proto'] === 'https'
     })
 
     user.password = undefined

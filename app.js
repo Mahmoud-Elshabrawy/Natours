@@ -60,7 +60,7 @@ app.use(
 
 const limiter = rateLimit({
   windowMs: 60 * 60 * 1000,
-  limit: 50,
+  limit: 100,
   message: 'Too Many Requests from this IP, Please try again in one hour',
 });
 
