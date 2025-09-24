@@ -6607,8 +6607,7 @@ var signUp = exports.signUp = /*#__PURE__*/function () {
           });
         case 1:
           res = _context.v;
-          // console.log(res);
-
+          console.log(res);
           if (res.data.status === 'success') {
             (0, _alert.showAlert)('success', 'User created successfully');
             window.setTimeout(function () {
