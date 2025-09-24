@@ -22,7 +22,9 @@ const bookingController = require('./controllers/bookingController')
 
 const app = express();
 
-app.set('trust proxy', 1);
+// app.set('trust proxy', 1);
+app.enable('trust proxy');
+
 
 // implement CORS 
 app.use(cors())
