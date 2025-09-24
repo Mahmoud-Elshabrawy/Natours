@@ -16,11 +16,13 @@ const signToken = id => {
 
 const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id)
-
+    console.log( req.secure);
+    console.log(req.headers['x-forwarded-proto']);
     res.cookie('jwt', token, {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE_IN * 24 * 60 * 60 * 1000),
         httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https',  
+        sameSite: 'lax'
     })
 
     user.password = undefined
