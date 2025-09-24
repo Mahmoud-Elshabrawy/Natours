@@ -204,7 +204,7 @@ const resetPassword = catchAsync(async(req, res, next) => {
 
 
     // 4) Log The User in
-    createSendToken(user, 200, res)
+    createSendToken(user, 200, req, res)
 
 
 })
@@ -223,7 +223,7 @@ const updatePassword = catchAsync(async(req, res, next) => {
     user.passwordConfirm = req.body.passwordConfirm
     await user.save()
     // 4) Log in again
-    createSendToken(user, 201, res)
+    createSendToken(user, 200, req, res)
 
 })
 
