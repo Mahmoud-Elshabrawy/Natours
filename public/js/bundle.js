@@ -6316,6 +6316,9 @@ var updateSettings = exports.updateSettings = /*#__PURE__*/function () {
           result = _context.v;
           if (result.data.status === 'success') {
             (0, _alert.showAlert)('success', "".concat(type.toUpperCase(), " Updated Successfully"));
+            window.setTimeout(function () {
+              location.reload();
+            }, 700);
           }
           _context.n = 3;
           break;
