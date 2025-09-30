@@ -18,11 +18,11 @@ const router = express.Router();
  *     responses:
  *       200:
  *         description: Get all users
- *    post:
- *      tags: [Users]
- *      response:
- *        200:
- *          description: Create new user
+ *   post:
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: Create new user
  */
 router.route('/').get(authController.protectAll, authController.restrictTo('admin'), usersController.getAllUsers);
 
