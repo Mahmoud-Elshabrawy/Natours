@@ -300,7 +300,8 @@ body {
 
 .header {
   background-color: #444;
-  padding: 2rem 2rem;
+  padding: 0 2rem;
+  height: 8rem;
   position: relative;
   z-index: 100;
   display: -webkit-box;
