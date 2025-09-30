@@ -36,3 +36,22 @@ It allows users to explore tours, sign up, log in, book tours, make payments, an
 - **Payment Gateway:** Stripe
 - **Templating Engine:** Pug
 - **Frontend:** Vanilla JS, CSS
+
+## 📂 Project Structure
+/
+│── controllers/       # Route handlers (business logic)
+│── dev-data/          # Sample data for development
+│── models/            # Mongoose models (User, Tour, Review, Booking)
+│── public/            # Static files (JS, CSS, images)
+│── routes/            # Express routes
+│── utils/             # Helper functions (email, error handling, etc.)
+│── views/             # Pug templates
+│── app.js             # Express app setup
+│── server.js          # App entry point
+│── config.env         # Environment variables
+
+
+## 🌐 Live Demo
+
+Check out the live version of the app here:  
+👉 [Natours Live Demo](https://natours--app.up.railway.app/)
