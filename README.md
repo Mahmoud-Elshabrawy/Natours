@@ -39,6 +39,13 @@ It allows users to explore tours, sign up, log in, book tours, make payments, an
 
 ---
 
+## 🌐 Live Demo
+
+Check out the live version of the app here:  
+👉 [Natours Live Demo](https://natours--app.up.railway.app/)
+
+---
+
 ## 📂 Project Structure
 
 ```bash
@@ -53,11 +60,3 @@ It allows users to explore tours, sign up, log in, book tours, make payments, an
 ├── app.js             # Express app setup
 ├── server.js          # App entry point
 └── config.env         # Environment variables
-
-
----
-
-## 🌐 Live Demo
-
-Check out the live version of the app here:  
-👉 [Natours Live Demo](https://natours--app.up.railway.app/)
