@@ -23,60 +23,6 @@ router.route('/').get(authController.protectAll, authController.restrictTo('admi
 
 /**
  * @swagger
- * /users/{id}:
- *   get:
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       200:
- *         description: Get user by ID
- *   patch:
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *     responses:
- *       200:
- *         description: User updated successfully
- *   delete:
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *     responses:
- *       204:
- *         description: User deleted successfully
- */
-router
-  .route('/:id')
-  .get(authController.protectAll, authController.restrictTo('admin'), usersController.getUser)
-  .patch(authController.protectAll, authController.restrictTo('admin'), usersController.updateUser)
-  .delete(authController.protectAll, authController.restrictTo('admin'), usersController.deleteUser);
-
-/**
- * @swagger
  * /users/signup:
  *   post:
  *     tags: [Users]
@@ -259,5 +205,59 @@ router.patch(
  *         description: User account deleted successfully
  */
 router.delete('/deleteMe', usersController.deleteMe);
+/**
+ * @swagger
+ * /users/{id}:
+ *   get:
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Get user by ID
+ *   patch:
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: User updated successfully
+ *   delete:
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       204:
+ *         description: User deleted successfully
+ */
+router
+  .route('/:id')
+  .get(authController.protectAll, authController.restrictTo('admin'), usersController.getUser)
+  .patch(authController.protectAll, authController.restrictTo('admin'), usersController.updateUser)
+  .delete(authController.protectAll, authController.restrictTo('admin'), usersController.deleteUser);
+
 
 module.exports = router;
