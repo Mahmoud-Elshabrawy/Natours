@@ -20,6 +20,9 @@ const bookingRouter = require('./routes/bookingRoutes')
 
 const bookingController = require('./controllers/bookingController')
 
+const swaggerUi = require('swagger-ui-express')
+const swaggerJsDoc = require('swagger-jsdoc')
+
 const app = express();
 
 app.set('trust proxy', 1);
@@ -122,6 +125,35 @@ app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/reviews', reviewRoutes);
 app.use('/api/v1/bookings', bookingRouter)
+
+const swaggerDefinition = {
+  openapi: '3.0.0',
+  info: {
+    title: 'Natours API',
+    version: '1.0.0',
+    description: 'API documentation for the Natours application',
+  },
+  servers: [
+    {
+      url: 'https://natours--app.up.railway.app/api/v1',
+      description: 'Production server',
+    },
+    {
+      url: 'http://localhost:3000/api/v1',
+      description: 'Local server',
+    },
+  ],
+};
+
+const swaggerOptions = {
+  swaggerDefinition,
+  apis: ['./routes/*.js'], 
+};
+
+const swaggerSpec = swaggerJsDoc(swaggerOptions);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 app.use((req, res, next) => {
   // const err = new Error(`Can't find ${req.originalUrl} in this Server!`)
