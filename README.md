@@ -43,7 +43,7 @@ It allows users to explore tours, sign up, log in, book tours, make payments, an
 
 Check out the live version of the app here:  
 👉 [Natours Live Demo](https://natours--app.up.railway.app/)
-
+**⚠️ Note:** : This live demo is best viewed and intended for use on a desktop or laptop computer
 ---
 
 ## 📂 Project Structure
